@@ -1,5 +1,5 @@
 - name: Update repositories cache and install "python-minimal" package
-  apt:
-    name: python-minimal
-    update_cache: yes
-    become_user: root
+   apt:
+     name: python-minimal
+     update_cache: yes
+     become_user: root
