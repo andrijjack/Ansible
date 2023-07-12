@@ -1,21 +1,10 @@
---- 
-- name: Update servers
-- hosts: 10.10.0.49
-  become: true
+---
+- hosts: all
 
-  tasks:
+  become: true
+   tasks:
     - name: update apt packages
       apt:
         upgrade: yes
         update_cache: yes
-
-#        ---
-#- hosts: all
-#
- # become: true
-  # tasks:
-   # - name: update apt packages
-    #  apt:
-    #    upgrade: yes
-     #   update_cache: yes
 
