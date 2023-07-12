@@ -1,5 +1,5 @@
 --- 
-name: Update servers
+- name: Update servers
 - hosts: all
   become: true
 
