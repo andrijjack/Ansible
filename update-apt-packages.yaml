@@ -1,6 +1,6 @@
 --- 
 - name: Update servers
-- hosts: all
+- hosts: 10.10.0.49
   become: true
 
   tasks:
