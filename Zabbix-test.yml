@@ -1,0 +1,31 @@
+---
+- name: Install and Configure Zabbix Agent
+  hosts: ubuntu_servers
+  become: yes
+  tasks:
+    - name: Update apt packages
+      apt:
+        update_cache: yes
+
+    - name: Install Zabbix Agent
+      apt:
+        name: zabbix-agent
+        state: present
+
+    - name: Copy Zabbix Agent configuration file
+      template:
+        src: zabbix_agentd.conf.j2
+        dest: /etc/zabbix/zabbix_agentd.conf
+      notify: Restart Zabbix Agent
+
+    - name: Ensure Zabbix Agent service is enabled and running
+      service:
+        name: zabbix-agent
+        enabled: yes
+        state: started
+
+  handlers:
+    - name: Restart Zabbix Agent
+      service:
+        name: zabbix-agent
+        state: restarted
