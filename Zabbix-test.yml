@@ -1,6 +1,6 @@
 ---
 - name: Install and Configure Zabbix Agent
-  hosts: ubuntu_servers
+  hosts: test
   become: yes
   tasks:
     - name: Update apt packages
@@ -14,7 +14,7 @@
 
     - name: Copy Zabbix Agent configuration file
       template:
-        src: zabbix_agentd.conf.j2
+        src: zabbix_agentd.conf
         dest: /etc/zabbix/zabbix_agentd.conf
       notify: Restart Zabbix Agent
 
