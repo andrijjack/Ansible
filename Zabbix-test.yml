@@ -3,6 +3,10 @@
   hosts: test
   become: yes
   tasks:
+    - name: Update apt packages
+      apt:
+        update_cache: yes
+
     - name: Install Zabbix Agent
       apt:
         name: zabbix-agent
